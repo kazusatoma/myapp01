@@ -1,0 +1,11 @@
+.wrapper{
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: silver;
+    height: 100%;
+}
+
+img{
+    width: 800px;
+}

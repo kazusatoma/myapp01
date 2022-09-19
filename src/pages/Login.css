@@ -1,0 +1,36 @@
+.loginWrapper {
+    background-color: rgb(35, 39, 65);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.divForm {
+    position: fixed;
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: rgb(0, 0, 0.7);
+    color: azure;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+
+
+label {
+    width: 300px;
+    text-align: right;
+    display: block;
+    margin-left:50px;
+    margin-top: 20px;
+}
+
+.clickButton{
+    margin: 0 auto;
+    margin-top: 20px ;
+}
