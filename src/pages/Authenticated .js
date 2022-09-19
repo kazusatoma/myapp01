@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Authenticated.css'
 
@@ -24,9 +24,11 @@ export default function Authenticated() {
   }
 
   return (
-    <div className='wrapper'>
-      <h1>Welcome!{userinfo.username}<button onClick={handleClick}>log out</button></h1>
-      <img src={`http://127.0.0.1:3007/${userinfo.avatar}`}/>
-    </div>
+    <Fragment>
+      {userinfo.avatar ? <div className='wrapper'>
+        <h1>Welcome!{userinfo.username}<button onClick={handleClick}>log out</button></h1>
+        <img alt='image' src={`http://127.0.0.1:3007/${userinfo.avatar}`} />
+      </div> : <h1>loading</h1>}
+    </Fragment>
   )
 }
