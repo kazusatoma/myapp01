@@ -19,7 +19,7 @@ export default function Authenticated() {
     }).catch((err)=>{
       alert(err)
     })
-    console.log(base_url + userinfo.avatar)
+    console.log(base_url +'/' + userinfo.avatar)
   }, [])
 
   const handleClick = () => {
