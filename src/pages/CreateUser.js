@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
+import api from '../utils/api'
 
 export default function CreateUser() {
 
@@ -43,7 +43,7 @@ export default function CreateUser() {
                 method: 'post',
                 headers: { 'Content-Type': 'multipart/form-data' }
             }
-            axios.post('http://127.0.0.1:3007/user/register', params, config).then((res) => {
+            api.post('/user/register', params, config).then((res) => {
                 alert(res.data.message)
                 if(res.data.message === "registered"){
                     navigate('/login')

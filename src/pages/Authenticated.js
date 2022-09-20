@@ -1,7 +1,8 @@
-import axios from 'axios'
 import React, { Fragment, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Authenticated.css'
+import api from '../utils/api'
+import { base_url } from '../config'
 
 export default function Authenticated() {
 
@@ -13,9 +14,12 @@ export default function Authenticated() {
       method: 'get',
       headers: { "Authorization": localStorage.getItem("token") }
     }
-    axios.get('http://127.0.0.1:3007/my/userinfo', config).then((res) => {
+    api.get('/my/userinfo', config).then((res) => {
       setUserInfo(res.data)
+    }).catch((err)=>{
+      alert(err)
     })
+    console.log(base_url + userinfo.avatar)
   }, [])
 
   const handleClick = () => {
@@ -27,8 +31,8 @@ export default function Authenticated() {
     <Fragment>
       {userinfo.avatar ? <div className='wrapper'>
         <h1>Welcome!{userinfo.username}<button onClick={handleClick}>log out</button></h1>
-        <img alt='image' src={`http://127.0.0.1:3007/${userinfo.avatar}`} />
-      </div> : <h1>loading</h1>}
+        <img alt='user' src={`${base_url + '/' + userinfo.avatar}`} />
+      </div> : <h1>401</h1>}
     </Fragment>
   )
 }

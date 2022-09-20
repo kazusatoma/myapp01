@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
-import Authenticated from '../pages/Authenticated ';
+import Authenticated from '../pages/Authenticated';
 
 export default function MyRouters() {
     return (

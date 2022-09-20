@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './Login.css'
+import api from '../utils/api'
 
 export default function Login() {
 
@@ -27,7 +27,7 @@ export default function Login() {
             method: 'post',
             headers: { 'Content-Type': 'multipart/form-data' }
         }
-        axios.post('http://127.0.0.1:3007/user/login', params, config).then((res) => {
+        api.post('/user/login', params, config).then((res) => {
             if(res.data.status === 0){
                 localStorage.setItem("token",res.data.token)
                 navigate('/authenticated')
